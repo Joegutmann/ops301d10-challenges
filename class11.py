@@ -48,3 +48,5 @@ if __name__ == "__main__":
 
     for stat, value in cpu_stats.items():
         print(f"{stat}: {value} seconds")
+
+        #Chatgpt was utilized to fix errors and check concepts.
