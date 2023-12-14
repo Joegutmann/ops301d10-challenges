@@ -7,7 +7,7 @@ $lastName = "Ferdinand"
 $username = "FFerdinand"
 $password = "S3cur3p@$$w0rd"
 $email = "ferdi@GlobeXpower.com"
-$ouPath = "OU=TPSDepartment,OU=Springfield,DC=GlobeX,DC=USA" # Update with the correct OU path
+$ouPath = "OU=TPSDepartment,OU=Springfield,DC=GlobeX,DC=USA" 
 $title = "TPS Reporting Lead"
 
 # Create the user account in Active Directory with these inputs
