@@ -1,0 +1,30 @@
+# Import the Active Directory module to ensure it's good
+Import-Module ActiveDirectory
+
+# User information for the person they want to add
+$firstName = "Franz"
+$lastName = "Ferdinand"
+$username = "FFerdinand"
+$password = "S3cur3p@$$w0rd"
+$email = "ferdi@GlobeXpower.com"
+$ouPath = "OU=TPSDepartment,OU=Springfield,DC=GlobeX,DC=USA" # Update with the correct OU path
+$title = "TPS Reporting Lead"
+
+# Create the user account in Active Directory with these inputs
+New-ADUser -Name "$firstName $lastName" `
+    -GivenName $firstName `
+    -Surname $lastName `
+    -SamAccountName $username `
+    -UserPrincipalName "$username@GlobeXpower.com" `
+    -Email $email `
+    -Title $title `
+    -AccountPassword (ConvertTo-SecureString $password -AsPlainText -Force) `
+    -Path "OU=Finance,DC=corp,DC=globexpower,DC=com" `
+    -Enabled $true
+
+# This took a bit of playing around with to get the syntax correct, and the paths.
+# The user was added, how well their account is operationally is not clear at this time.
+# I would recommend instead of doing one specifically for a user, create a powershell
+# Script that would allow you to fill out the details in an excel spreadsheet and
+# then have it bulk add users instead of manually putting in their information into
+# this file and doing it one at a time. 
